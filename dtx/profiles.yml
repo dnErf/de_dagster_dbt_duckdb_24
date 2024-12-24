@@ -9,3 +9,7 @@ dtx:
       type: duckdb
       path: target/prod.duckdb
       threads: 2
+    staging:
+      type: duckdb
+      path: "md:stage?{{ env_var('motherduck_token') }}"
+      
