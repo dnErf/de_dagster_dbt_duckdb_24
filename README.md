@@ -1,0 +1,3 @@
+# dagster dbt duckdb basics
+
+currently exploring ...

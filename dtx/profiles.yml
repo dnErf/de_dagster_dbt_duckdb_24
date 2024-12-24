@@ -1,0 +1,11 @@
+dtx:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: target/dev.duckdb
+      threads: 2
+    prod:
+      type: duckdb
+      path: target/prod.duckdb
+      threads: 2
