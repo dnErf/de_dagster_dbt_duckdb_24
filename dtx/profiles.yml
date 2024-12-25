@@ -12,4 +12,5 @@ dtx:
     staging:
       type: duckdb
       path: "md:stage?{{ env_var('motherduck_token') }}"
+      schema: main
       

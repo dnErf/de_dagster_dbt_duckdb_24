@@ -34,3 +34,6 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: table
+    x24f01:
+      +materialized: table
+      +tags: "silver"

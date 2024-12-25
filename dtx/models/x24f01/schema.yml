@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: f_tv_shows
+    description: fact table
+  
+  - name: d_end_year
+    description: distinct end year
+
+  - name: d_start_year
+    description: distinct start year

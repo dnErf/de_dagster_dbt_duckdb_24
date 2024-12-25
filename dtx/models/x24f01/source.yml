@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: dags
+    tables: 
+      - name: kaggle_tv_shows
+        meta:
+          dagster:
+            asset_key: ["iceberg_tvshow_catalog"]

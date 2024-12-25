@@ -20,3 +20,4 @@ else:
 
 class EnvironmentVariables(ConfigurableResource):
     deployment: str
+    mdt: str

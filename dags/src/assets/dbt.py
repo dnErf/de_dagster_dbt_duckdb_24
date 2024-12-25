@@ -4,4 +4,4 @@ from ..constants import dbt_manifest_path
 
 @dbt_assets(manifest=dbt_manifest_path)
 def dbt_manifest_assets(context: AssetExecutionContext, dbt: DbtCliResource):
-    yield from dbt.cli(["build"], context=context).stream()
+    yield from dbt.cli(["build","--select","tag:silver"], context=context).stream()

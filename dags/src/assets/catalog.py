@@ -1,3 +1,5 @@
+import duckdb
+
 from dagster import asset
 
 from ..resources.iceberg import IcebergResource
@@ -14,3 +16,11 @@ def iceberg_tvshow_catalog(ev: EnvironmentVariables, iceberg: IcebergResource):
     c = int(dt.fetchone()[0])
     
     return c > 0
+
+@asset(deps=["f_tv_shows","d_start_year","d_end_year"], compute_kind="python")
+def mduck_asset():
+    db = duckdb.connect(f"{dbt_project_dir}/target/dev.duckdb")
+    db.execute("attach 'md:x24f01'")
+    # save to motherduck
+    # refactor this
+    return
