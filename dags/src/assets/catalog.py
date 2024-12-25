@@ -21,6 +21,23 @@ def iceberg_tvshow_catalog(ev: EnvironmentVariables, iceberg: IcebergResource):
 def mduck_asset():
     db = duckdb.connect(f"{dbt_project_dir}/target/dev.duckdb")
     db.execute("attach 'md:x24f01'")
+    
     # save to motherduck
+    db.execute("""
+        create or replace table x24f01.main.f_tv_shows 
+            as select * from dev.dags.kaggle_tv_shows 
+    """)
+    db.execute("""
+        create or replace table x24f01.main.d_start_year
+            as select * from dev.dags.kaggle_tv_shows
+    """)
+    db.execute("""
+        create or replace table x24f01.main.d_end_year 
+            as select * from dev.dags.kaggle_tv_shows
+    """)
+    
+    c = db.sql("select count(*) from x24f01.main.f_tv_shows limit 1").fetchone()[0]
+    print(c)
+
     # refactor this
-    return
+    return c > 0
