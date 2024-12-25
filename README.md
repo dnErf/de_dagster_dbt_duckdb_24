@@ -2,6 +2,12 @@
 
 exploring dagster dbt and duckdb
 
+other tech used:
+
+- minio
+- apache iceberg
+- motherduck
+
 ---
 
 ## overview
